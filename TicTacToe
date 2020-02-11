@@ -1,0 +1,154 @@
+//Author: Quinten Chokrev-Evans
+//Date: June 12th, 2018
+//Filename: TicTacToe.java
+//Description: This program runs the popular game tic tac toe. 
+import java.util.*;
+
+public class TicTacToe
+{
+  public static void main(String[] args)
+  {
+    int win =0;
+    int x=1;
+    //delcares the board
+    Board b = new Board(3, 3);
+   
+    boolean[][] hasRedPeg = new boolean[3][3];
+    boolean[][] hasBluePeg = new boolean [3][3];
+    //sets up the colours    
+    String player1 = "red";
+    String player2= "blue";
+    int totalMove=0;
+    //checks to find a winner
+    do {
+      b.displayMessage("Welcome to Tic Tac Toe");
+      Coordinate c=b.getClick();
+      int row1;
+      int col1;
+      row1 = c.getRow();
+      col1= c.getCol();
+      
+      if(hasRedPeg[row1][col1] == false && hasBluePeg[row1][col1] == false && x==1)
+      {
+        b.putPeg("red",row1,col1);
+        hasRedPeg[row1][col1] = true;
+        totalMove++;
+        x=2;
+      }
+      else if(hasRedPeg[row1][col1]==false&&hasBluePeg[row1][col1]==false&&x==2)
+      {
+      b.putPeg("blue",row1,col1);
+        hasBluePeg[row1][col1]=true;
+        totalMove++;
+        x=1;
+      }
+      if (hasRedPeg[row1][col1] == hasRedPeg[0][0] && hasRedPeg[1][0] && hasRedPeg[2][0] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[0][1] && hasRedPeg[1][1] && hasRedPeg[2][1] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[0][2] && hasRedPeg[1][2] && hasRedPeg[2][2] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[0][0] && hasRedPeg[0][1] && hasRedPeg[0][2] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[1][0] && hasRedPeg[1][1] && hasRedPeg[1][2] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[2][0] && hasRedPeg[2][1] && hasRedPeg[2][2] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[0][0] && hasRedPeg[1][1] && hasRedPeg[2][2] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasRedPeg[row1][col1] == hasRedPeg[0][2] && hasRedPeg[1][1] && hasRedPeg[2][0] && hasRedPeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 1 wins.");
+        win = 1;
+        break;
+      }
+            if (hasBluePeg[row1][col1] == hasBluePeg[0][0] && hasBluePeg[1][0] && hasBluePeg[2][0] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[0][1] && hasBluePeg[1][1] && hasBluePeg[2][1] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[0][2] && hasBluePeg[1][2] && hasBluePeg[2][2] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[0][0] && hasBluePeg[0][1] && hasBluePeg[0][2] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[1][0] && hasBluePeg[1][1] && hasBluePeg[1][2] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[2][0] && hasBluePeg[2][1] && hasBluePeg[2][2] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[0][0] && hasBluePeg[1][1] && hasBluePeg[2][2] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (hasBluePeg[row1][col1] == hasBluePeg[0][2] && hasBluePeg[1][1] && hasBluePeg[2][0] && hasBluePeg[row1][col1] == true)
+      {
+        b.displayMessage("Player 2 wins.");
+        win = 1;
+        break;
+      }
+      else if (totalMove == 9){
+        b.displayMessage("It's a tie!");
+        win = 0;
+        break;
+      }
+    }while(win != 1);
+  }
+}
+    
+    
+
+  
+
+      
